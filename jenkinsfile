@@ -1,0 +1,11 @@
+node('clinic'){
+    stage('Download code from git'){
+        git changelog: false, poll: false, url: 'https://github.com/jleetutorial/maven-project.git'
+    }
+    stage('Run Maven'){
+        sh mvn package
+    }
+    stage('archive the artifacts'){
+        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+    }
+}
