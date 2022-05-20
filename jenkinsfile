@@ -1,6 +1,6 @@
 node('clinic'){
     stage('Download code from git'){
-        git changelog: false, poll: false, url: 'https://github.com/spring-projects/spring-petclinic.git'
+        git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
     }
     stage('Run Maven'){
         sh 'mvn clean package'
