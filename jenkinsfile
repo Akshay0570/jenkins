@@ -1,6 +1,6 @@
 node('clinic'){
     stage('Download code from git'){
-        git changelog: false, poll: false, url: 'https://github.com/jleetutorial/maven-project.git'
+        git changelog: false, poll: false, url: 'https://github.com/web3j/sample-project-maven.git'
     }
     stage('Run Maven'){
         sh 'mvn package'
