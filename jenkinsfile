@@ -3,7 +3,7 @@ node('clinic'){
         git changelog: false, poll: false, url: 'https://github.com/spring-projects/spring-petclinic.git'
     }
     stage('Run Maven'){
-        sh 'mvn deploy'
+        sh 'mvn clean package'
     }
     stage('archive the artifacts'){
         archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
