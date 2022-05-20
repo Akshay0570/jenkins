@@ -1,11 +1,11 @@
 node('clinic'){
     stage('Download code from git'){
-        git changelog: false, poll: false, url: 'https://github.com/wakaleo/game-of-life.git'
+        git changelog: false, poll: false, url: 'https://github.com/spring-projects/spring-petclinic.git'
     }
     stage('Run Maven'){
-        sh 'mvn package'
+        sh 'mvn deploy'
     }
     stage('archive the artifacts'){
-        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+        archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
     }
 }
