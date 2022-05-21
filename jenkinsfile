@@ -12,5 +12,15 @@ pipeline {
                 ansiblePlaybook become: true, credentialsId: '1fabfe27-0b50-4745-84af-f0366fbee1b2', installation: 'Ansible', inventory: '/home/jenkins/workspace/jenkins/hosts', playbook: '/home/jenkins/workspace/jenkins/playbook.yml'
             }
         }
+        stage('Download Spring petclinic from git'){
+            steps{
+                git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
+            }
+        }
+        stage('Run maven'){
+            steps{
+                sh mvn package
+            }
+        }
     }
 }
