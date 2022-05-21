@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Running ansible playbook'){
             steps{
-                ansiblePlaybook credentialsId: '87b25871-e34a-4d0e-8c72-e6d44872575f', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/home/jenkins/workspace/Spring-petclinic/hosts', playbook: '/home/jenkins/workspace/Spring-petclinic/playbook.yml'
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'Ansible', inventory: '**/hosts', playbook: '**/*.yml'
             }
         }
     }
