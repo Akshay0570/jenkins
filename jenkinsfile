@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Running ansible playbook'){
             steps{
-                ansiblePlaybook disableHostKeyChecking: true, installation: 'Ansible', inventory: '/home/jenkins/workspace/jenkins/hosts', playbook: '/home/jenkins/workspace/jenkins/playbook.yml'
+                ansiblePlaybook become: true, credentialsId: 'a1d9801c-4f77-4b7d-9651-da87e0bb9f28', installation: 'Ansible', inventory: '/home/jenkins/workspace/jenkins/hosts', playbook: '/home/jenkins/workspace/jenkins/playbook.yml'
             }
         }
     }
