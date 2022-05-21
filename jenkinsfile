@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Running ansible playbook'){
             steps{
-                ansiblePlaybook become: true, credentialsId: '1fabfe27-0b50-4745-84af-f0366fbee1b2', installation: 'Ansible', inventory: 'hosts', playbook: 'playbook.yml'
+                ansiblePlaybook become: true, credentialsId: '1fabfe27-0b50-4745-84af-f0366fbee1b2', installation: 'Ansible', inventory: '/home/jenkins/workspace/New\ jenkins/hosts', playbook: '/home/jenkins/workspace/New\ jenkins/playbook.yml'
             }
         }
     }
