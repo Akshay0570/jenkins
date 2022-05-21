@@ -2,11 +2,15 @@ pipeline {
     agent { label 'clinic' }
     triggers { pollSCM('H */1 * * *') }
     stages{
-        stage{
-            git branch: 'main', url: 'https://github.com/Akshay0570/jenkins.git'
+        stage('Downloading Git repository'){
+            steps{
+                git branch: 'main', url: 'https://github.com/Akshay0570/jenkins.git'
+            }
         }
-        stage{
-            ansiblePlaybook credentialsId: '87b25871-e34a-4d0e-8c72-e6d44872575f', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts', playbook: 'playbook.yml'
+        stage('Running ansible playbook'){
+            steps{
+                ansiblePlaybook credentialsId: '87b25871-e34a-4d0e-8c72-e6d44872575f', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts', playbook: 'playbook.yml'
+            }
         }
     }
 }
