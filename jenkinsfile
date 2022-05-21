@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Running ansible playbook'){
             steps{
-                ansiblePlaybook disableHostKeyChecking: true, installation: 'Ansible', inventory: '**/hosts', playbook: '**/*.yml'
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'Ansible', inventory: 'home/jenkins/workspace/jenkins/hosts', playbook: 'home/jenkins/workspace/jenkins/*.yml'
             }
         }
     }
